@@ -1,0 +1,6 @@
+black==19.10b0
+flake8>=3.7.9
+isort[pyproject]==4.3.21
+pip-tools==5.2.0
+pip==20.1.1
+pre-commit==1.20.0
