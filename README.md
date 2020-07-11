@@ -6,7 +6,7 @@ Parsing of NYPD complaints data
 1. **Install Xcode Command Line Tools:** open up a terminal, run `xcode-select --install`, and agree to the prompt.
 1. **Clone this repository:** [set up an SSH key](https://help.github.com/en/articles/connecting-to-github-with-ssh) and then run
     ```
-    mkdir ~/src/github/
+    mkdir -p ~/src/github/
     cd ~/src/github
     git clone git@github.com:mikss/nypdcd.git
     cd nypdcd
