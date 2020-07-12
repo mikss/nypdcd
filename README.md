@@ -15,7 +15,7 @@ Parsing of NYPD complaints data
         cd nypdcd
         ```
 1. **Bootstrap your dev environment:**
-  1. run `make`, which will install and set up
+    1. run `make`, which will install and set up
         1. [brew](https://brew.sh/) (package manager)
         1. [direnv](https://direnv.net) (env vars based on the current directory)
         1. [pre-commit](https://pre-commit.com/) (manage git hooks)
