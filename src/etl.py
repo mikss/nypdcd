@@ -47,14 +47,10 @@ def fetch_complaints(
                     f.write(data.content)
 
             ext = "csv"
-            data = requests.get(
-                f"https://data.cityofnewyork.us/api/views/{endpoint}/rows.csv"
-            )
+            data = requests.get(f"https://data.cityofnewyork.us/api/views/{endpoint}/rows.csv")
 
         else:
-            raise NotImplementedError(
-                "The keyword argument `how` must be one of 'api' or 'url'."
-            )
+            raise NotImplementedError("The keyword argument `how` must be one of 'api' or 'url'.")
 
         if write:
             Path(latest_path).mkdir(parents=True, exist_ok=True)
@@ -109,18 +105,14 @@ def get_latest_concatenated(
             for filename in data_step[2]:
                 endpoint, extension = os.path.splitext(filename)
                 if endpoint in endpoints:
-                    if (endpoint not in latest_caches) or (
-                        nanos > latest_caches[endpoint].nanos
-                    ):
-                        latest_caches[endpoint] = Cache(
-                            endpoint, nanos, extension, data_path
-                        )
+                    if (endpoint not in latest_caches) or (nanos > latest_caches[endpoint].nanos):
+                        latest_caches[endpoint] = Cache(endpoint, nanos, extension, data_path)
 
     return (
         pd.concat(cache() for cache in latest_caches.values())
-        .sort_values(COMPLAINT_ID_COL)
-        .drop_duplicates(COMPLAINT_ID_COL)
         .set_index(COMPLAINT_ID_COL, drop=False)
+        .sort_index()
+        .drop_duplicates()
     )
 
 

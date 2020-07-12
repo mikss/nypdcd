@@ -15,3 +15,10 @@ Parsing of NYPD complaints data
 vars based on the current directory) + [pre-commit](https://pre-commit.com/) (manage git hooks), and set up a python [virtual
 environment](https://docs.python.org/3/tutorial/venv.html) with all dependencies. Then add the [direnv shell hook](https://direnv.net/docs/hook.html) to your shell `.*rc` and refresh your shell with `exec $SHELL`.
 1. **Fetch data:** run `make local-copy` to save a local copy of NYPD complaints data via [Socrata API](https://dev.socrata.com).
+
+## TODO
+
+* if move repo to public:
+    - protect master branch
+    - ReviewNB integration
+    - GH actions for CI/CD (linting + testing)
